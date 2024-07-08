@@ -1,8 +1,15 @@
-extends Node
+extends Node2D
 
+var score = 0
+var score_label
 
-# Called when the node enters the scene tree for the first time.
-func _score():
-	$label
-	
-	pass # Replace with function body.
+func _ready():
+	score_label = $ScoreLabel
+	update_score()
+
+func increase_score(amount):
+	score += amount
+	update_score()
+
+func update_score():
+	score_label.text = "Score: %d" % score

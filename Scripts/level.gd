@@ -1,11 +1,27 @@
-extends Node
+extends Node2D
 
+var current_level = 1
+var enemies_per_level = 5
+var enemies_killed = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	start_level(current_level)
 
+func start_level(level):
+	current_level = level
+	enemies_killed = 0
+	spawn_enemies(enemies_per_level * current_level)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func spawn_enemies(amount):
+	for i in range(amount):
+		# Spawn enemy code here
+		pass
+
+func enemy_killed():
+	enemies_killed += 1
+	if enemies_killed >= enemies_per_level * current_level:
+		start_next_level()
+
+func start_next_level():
+	current_level += 1
+	start_level(current_level)
