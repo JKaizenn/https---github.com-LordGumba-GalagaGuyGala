@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cefk8dpj6k41s"]
+
+[ext_resource type="PackedScene" uid="uid://b8kpcv38c7wu6" path="res://Scenes/enemy.tscn" id="1_5bul7"]
+
+[node name="Enemy2" instance=ExtResource("1_5bul7")]
+
+[node name="MoveComponent" parent="." index="3"]
+velocity = Vector2(2.08165e-12, 40)
